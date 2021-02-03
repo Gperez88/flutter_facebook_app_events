@@ -35,9 +35,9 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
         case "setUserID":
             handleSetUserId(call, result: result)
             break
-        case "updateUserProperties":
-            handleUpdateUserProperties(call, result: result)
-            break
+        // case "updateUserProperties":
+        //     handleUpdateUserProperties(call, result: result)
+        //     break
         case "setAutoLogAppEventsEnabled":
             handleSetAutoLogAppEventsEnabled(call, result: result)
             break
@@ -127,18 +127,18 @@ public class SwiftFacebookAppEventsPlugin: NSObject, FlutterPlugin {
         result(nil)
     }
 
-    private func handleUpdateUserProperties(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-        let arguments = call.arguments as? [String: Any] ?? [String: Any]()
-        let parameters =  arguments["parameters"] as! [String: Any]
+    // private func handleUpdateUserProperties(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    //     let arguments = call.arguments as? [String: Any] ?? [String: Any]()
+    //     let parameters =  arguments["parameters"] as! [String: Any]
 
-        AppEvents.updateUserProperties( parameters, handler: { (connection, response, error) in
-            if error != nil {
-                result(nil)
-            } else {
-                result(response)
-            }
-        })
-    }
+    //     AppEvents.updateUserProperties( parameters, handler: { (connection, response, error) in
+    //         if error != nil {
+    //             result(nil)
+    //         } else {
+    //             result(response)
+    //         }
+    //     })
+    // }
 
     private func handleSetAutoLogAppEventsEnabled(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         let enabled = call.arguments as! Bool
